@@ -24,6 +24,12 @@ export interface PluginOptions {
    * Enable adding docgen information to a global collection.
    */
   docgenCollectionName?: string;
+
+  /** File paths must match regex. Defaults to /\.tsx$/ . */
+  include?: string;
+
+  /** File paths must not match regex. */
+  exclude?: string;
 }
 
 interface State {
@@ -37,14 +43,28 @@ export default function(babel: { types: typeof types }): PluginObj<State> {
     pre() {
       this.fileProcessed = false;
     },
-
     visitor: {
       Identifier(path, state) {
         if (this.fileProcessed) return;
         this.fileProcessed = true;
 
-        const filePath = state.file.opts.filename;
-        if (!/\.tsx?$/.test(filePath)) return;
+        const filePath: string = state.file.opts.filename;
+
+        const includeRegex =
+          typeof state.opts.include === "string"
+            ? new RegExp(state.opts.include)
+            : new RegExp("\\.tsx$");
+
+        const excludeRegex =
+          typeof state.opts.exclude === "string"
+            ? new RegExp(state.opts.exclude)
+            : null;
+
+        if (
+          !includeRegex.test(filePath) ||
+          (excludeRegex !== null && excludeRegex.test(filePath))
+        )
+          return;
 
         const docgenCollectionKeyBase = p
           .relative("./", p.resolve("./", path.hub.file.opts.filename))

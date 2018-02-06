@@ -1,6 +1,6 @@
 import * as path from "path";
 import * as babel from "babel-core";
-import plugin, { PluginOptions } from "./plugin";
+import plugin, { PluginOptions } from "./index";
 
 it("generates docgen for required props", async () => {
   const result = await transformFile("Component.tsx");
