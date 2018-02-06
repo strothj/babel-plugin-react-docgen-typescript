@@ -1,0 +1,254 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`adds component to docgen collection 1`] = `
+"\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = void 0;
+
+var React = _interopRequireWildcard(require(\\"react\\"));
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+/**
+ * This is an awesome looking button for React.
+ */
+class Button extends React.Component {
+  render() {
+    const _props = this.props,
+          label = _props.label,
+          onClick = _props.onClick;
+    return React.createElement(React.Fragment, null, React.createElement(\\"button\\", {
+      onClick: onClick
+    }, label));
+  }
+
+}
+
+var _default = Button;
+exports.default = _default;
+
+try {
+  Button.displayName = \\"Button\\";
+  Button.__docgenInfo = {
+    description: \\"This is an awesome looking button for React.\\",
+    displayName: \\"Button\\",
+    props: {
+      label: {
+        \\"defaultValue\\": null,
+        \\"description\\": \\"Label for button.\\",
+        \\"name\\": \\"label\\",
+        \\"required\\": true,
+        \\"type\\": {
+          \\"name\\": \\"string\\"
+        }
+      },
+      onClick: {
+        \\"defaultValue\\": null,
+        \\"description\\": \\"Triggered when button is clicked.\\",
+        \\"name\\": \\"onClick\\",
+        \\"required\\": true,
+        \\"type\\": {
+          \\"name\\": \\"(event: SyntheticEvent<any>) => void\\"
+        }
+      },
+      optionalColor: {
+        \\"defaultValue\\": null,
+        \\"description\\": \\"An optional color to apply to the button.\\",
+        \\"name\\": \\"optionalColor\\",
+        \\"required\\": false,
+        \\"type\\": {
+          \\"name\\": \\"string\\"
+        }
+      }
+    }
+  };
+
+  if (typeof STORYBOOK_REACT_CLASSES !== \\"undefined\\") {
+    STORYBOOK_REACT_CLASSES[\\"src/__fixtures__/Component.tsx#Button\\"] = {
+      name: \\"Button\\",
+      docgenInfo: Button.__docgenInfo,
+      path: \\"C:\\\\\\\\Users\\\\\\\\Jason\\\\\\\\code\\\\\\\\public\\\\\\\\babel-plugin-react-docgen-typescript\\\\\\\\src\\\\\\\\__fixtures__\\\\\\\\Component.tsx\\"
+    };
+  }
+} catch (e) {}"
+`;
+
+exports[`generates docgen for required props 1`] = `
+"\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = void 0;
+
+var React = _interopRequireWildcard(require(\\"react\\"));
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+/**
+ * This is an awesome looking button for React.
+ */
+class Button extends React.Component {
+  render() {
+    const _props = this.props,
+          label = _props.label,
+          onClick = _props.onClick;
+    return React.createElement(React.Fragment, null, React.createElement(\\"button\\", {
+      onClick: onClick
+    }, label));
+  }
+
+}
+
+var _default = Button;
+exports.default = _default;
+
+try {
+  Button.displayName = \\"Button\\";
+  Button.__docgenInfo = {
+    description: \\"This is an awesome looking button for React.\\",
+    displayName: \\"Button\\",
+    props: {
+      label: {
+        \\"defaultValue\\": null,
+        \\"description\\": \\"Label for button.\\",
+        \\"name\\": \\"label\\",
+        \\"required\\": true,
+        \\"type\\": {
+          \\"name\\": \\"string\\"
+        }
+      },
+      onClick: {
+        \\"defaultValue\\": null,
+        \\"description\\": \\"Triggered when button is clicked.\\",
+        \\"name\\": \\"onClick\\",
+        \\"required\\": true,
+        \\"type\\": {
+          \\"name\\": \\"(event: SyntheticEvent<any>) => void\\"
+        }
+      },
+      optionalColor: {
+        \\"defaultValue\\": null,
+        \\"description\\": \\"An optional color to apply to the button.\\",
+        \\"name\\": \\"optionalColor\\",
+        \\"required\\": false,
+        \\"type\\": {
+          \\"name\\": \\"string\\"
+        }
+      }
+    }
+  };
+} catch (e) {}"
+`;
+
+exports[`omits multiple props from options 1`] = `
+"\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = void 0;
+
+var React = _interopRequireWildcard(require(\\"react\\"));
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+/**
+ * This is an awesome looking button for React.
+ */
+class Button extends React.Component {
+  render() {
+    const _props = this.props,
+          label = _props.label,
+          onClick = _props.onClick;
+    return React.createElement(React.Fragment, null, React.createElement(\\"button\\", {
+      onClick: onClick
+    }, label));
+  }
+
+}
+
+var _default = Button;
+exports.default = _default;
+
+try {
+  Button.displayName = \\"Button\\";
+  Button.__docgenInfo = {
+    description: \\"This is an awesome looking button for React.\\",
+    displayName: \\"Button\\",
+    props: {
+      optionalColor: {
+        \\"defaultValue\\": null,
+        \\"description\\": \\"An optional color to apply to the button.\\",
+        \\"name\\": \\"optionalColor\\",
+        \\"required\\": false,
+        \\"type\\": {
+          \\"name\\": \\"string\\"
+        }
+      }
+    }
+  };
+} catch (e) {}"
+`;
+
+exports[`omits prop from options 1`] = `
+"\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = void 0;
+
+var React = _interopRequireWildcard(require(\\"react\\"));
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+/**
+ * This is an awesome looking button for React.
+ */
+class Button extends React.Component {
+  render() {
+    const _props = this.props,
+          label = _props.label,
+          onClick = _props.onClick;
+    return React.createElement(React.Fragment, null, React.createElement(\\"button\\", {
+      onClick: onClick
+    }, label));
+  }
+
+}
+
+var _default = Button;
+exports.default = _default;
+
+try {
+  Button.displayName = \\"Button\\";
+  Button.__docgenInfo = {
+    description: \\"This is an awesome looking button for React.\\",
+    displayName: \\"Button\\",
+    props: {
+      label: {
+        \\"defaultValue\\": null,
+        \\"description\\": \\"Label for button.\\",
+        \\"name\\": \\"label\\",
+        \\"required\\": true,
+        \\"type\\": {
+          \\"name\\": \\"string\\"
+        }
+      },
+      optionalColor: {
+        \\"defaultValue\\": null,
+        \\"description\\": \\"An optional color to apply to the button.\\",
+        \\"name\\": \\"optionalColor\\",
+        \\"required\\": false,
+        \\"type\\": {
+          \\"name\\": \\"string\\"
+        }
+      }
+    }
+  };
+} catch (e) {}"
+`;

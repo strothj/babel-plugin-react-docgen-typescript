@@ -1,0 +1,190 @@
+import * as p from "path";
+import { types, PluginObj } from "babel-core";
+import { parse } from "react-docgen-typescript/lib/parser";
+
+/**
+ * Babel plugin options.
+ */
+export interface PluginOptions {
+  /**
+   * Do not include props with the supplied name or names.
+   *
+   * This option is passed to the "react-docgen-typescript" parser.
+   */
+  skipPropsWithName?: string[] | string;
+
+  /**
+   * Do not document props with no documentation.
+   *
+   * This option is passed to the "react-docgen-typescript" parser.
+   */
+  skipPropsWithoutDoc?: boolean;
+
+  /**
+   * Enable adding docgen information to a global collection.
+   */
+  docgenCollectionName?: string;
+}
+
+interface State {
+  fileProcessed: boolean;
+}
+
+export default function(babel: { types: typeof types }): PluginObj<State> {
+  const t = babel.types;
+
+  return {
+    pre() {
+      this.fileProcessed = false;
+    },
+
+    visitor: {
+      Identifier(path, state) {
+        if (this.fileProcessed) return;
+        this.fileProcessed = true;
+
+        const filePath = state.file.opts.filename;
+        if (!/\.tsx?$/.test(filePath)) return;
+
+        const docgenCollectionKeyBase = p
+          .relative("./", p.resolve("./", path.hub.file.opts.filename))
+          .replace(/\\/g, "/");
+
+        const componentDocs = parse(filePath, { propFilter: state.opts });
+
+        componentDocs.forEach(doc => {
+          const program = path.scope.getProgramParent().path;
+
+          const tryBlockContents: types.Statement[] = [
+            // Set component display name.
+            t.expressionStatement(
+              t.assignmentExpression(
+                "=",
+                t.memberExpression(
+                  t.identifier(doc.displayName),
+                  t.identifier("displayName"),
+                ),
+                t.stringLiteral(doc.displayName),
+              ),
+            ),
+
+            // Set __docgenInfo field.
+            t.expressionStatement(
+              t.assignmentExpression(
+                "=",
+                t.memberExpression(
+                  t.identifier(doc.displayName),
+                  t.identifier("__docgenInfo"),
+                ),
+                t.objectExpression([
+                  t.objectProperty(
+                    t.identifier("description"),
+                    t.stringLiteral(doc.description),
+                  ),
+                  t.objectProperty(
+                    t.identifier("displayName"),
+                    t.stringLiteral(doc.displayName),
+                  ),
+                  t.objectProperty(
+                    t.identifier("props"),
+                    t.objectExpression(
+                      Object.keys(doc.props).map(propName =>
+                        t.objectProperty(
+                          t.identifier(propName),
+                          t.objectExpression([
+                            t.objectProperty(
+                              t.stringLiteral("defaultValue"),
+                              t.nullLiteral(),
+                            ),
+                            t.objectProperty(
+                              t.stringLiteral("description"),
+                              t.stringLiteral(doc.props[propName].description),
+                            ),
+                            t.objectProperty(
+                              t.stringLiteral("name"),
+                              t.stringLiteral(doc.props[propName].name),
+                            ),
+                            t.objectProperty(
+                              t.stringLiteral("required"),
+                              t.booleanLiteral(doc.props[propName].required),
+                            ),
+                            t.objectProperty(
+                              t.stringLiteral("type"),
+                              t.objectExpression([
+                                t.objectProperty(
+                                  t.stringLiteral("name"),
+                                  t.stringLiteral(
+                                    doc.props[propName].type.name,
+                                  ),
+                                ),
+                              ]),
+                            ),
+                          ]),
+                        ),
+                      ),
+                    ),
+                  ),
+                ]),
+              ),
+            ),
+          ];
+
+          if (typeof state.opts.docgenCollectionName === "string") {
+            tryBlockContents.push(
+              // Add to docgen collection.
+              t.ifStatement(
+                t.binaryExpression(
+                  "!==",
+                  t.unaryExpression(
+                    "typeof",
+                    t.identifier(state.opts.docgenCollectionName),
+                  ),
+                  t.stringLiteral("undefined"),
+                ),
+                t.blockStatement([
+                  t.expressionStatement(
+                    t.assignmentExpression(
+                      "=",
+                      t.memberExpression(
+                        t.identifier(state.opts.docgenCollectionName),
+                        t.stringLiteral(
+                          `${docgenCollectionKeyBase}#${doc.displayName}`,
+                        ),
+                        true,
+                      ),
+                      t.objectExpression([
+                        t.objectProperty(
+                          t.identifier("name"),
+                          t.stringLiteral(doc.displayName),
+                        ),
+                        t.objectProperty(
+                          t.identifier("docgenInfo"),
+                          t.memberExpression(
+                            t.identifier(doc.displayName),
+                            t.identifier("__docgenInfo"),
+                          ),
+                        ),
+                        t.objectProperty(
+                          t.identifier("path"),
+                          t.stringLiteral(filePath),
+                        ),
+                      ]),
+                    ),
+                  ),
+                ]),
+              ),
+            );
+          }
+
+          const outerTryStatement = t.tryStatement(
+            t.blockStatement(tryBlockContents),
+            t.catchClause(t.identifier("e"), t.blockStatement([])),
+          );
+
+          // @ts-ignore
+          program.pushContainer("body", outerTryStatement);
+        });
+      },
+    },
+  };
+}

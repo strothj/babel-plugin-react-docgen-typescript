@@ -1,0 +1,4 @@
+node_modules/
+/dist
+/.vscode
+*error.log
