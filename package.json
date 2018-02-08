@@ -1,9 +1,12 @@
 {
   "name": "babel-plugin-react-docgen-typescript",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/index.js",
   "author": "strothj <jason@jasons.io>",
   "license": "MIT",
+  "files": [
+    "dist/index.js"
+  ],
   "scripts": {
     "build": "cross-env NODE_ENV=production rollup -c",
     "lint": "tslint -p ./tsconfig.json src/**/*.{ts,tsx}",
@@ -16,7 +19,7 @@
     "test"
   ],
   "peerDependencies": {
-    "@babel/core": "7.0.0-"
+    "@babel/core": "^7.0.0-0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.39",
