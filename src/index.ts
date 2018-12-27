@@ -70,7 +70,10 @@ export default function(babel: { types: typeof types }): PluginObj<State> {
           .relative("./", p.resolve("./", path.hub.file.opts.filename))
           .replace(/\\/g, "/");
 
-        const componentDocs = parse(filePath, { propFilter: state.opts });
+        const componentDocs = parse(filePath, {
+          propFilter: state.opts.propFilter || state.opts,
+          componentNameResolver: state.opts.componentNameResolver,
+        });
 
         componentDocs.forEach(doc => {
           const program = path.scope.getProgramParent().path;
