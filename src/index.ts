@@ -110,7 +110,7 @@ export default function(babel: { types: typeof types }): PluginObj<State> {
                     t.objectExpression(
                       Object.keys(doc.props).map(propName =>
                         t.objectProperty(
-                          t.identifier(propName),
+                          t.identifier(`"${propName}"`),
                           t.objectExpression([
                             t.objectProperty(
                               t.stringLiteral("defaultValue"),
