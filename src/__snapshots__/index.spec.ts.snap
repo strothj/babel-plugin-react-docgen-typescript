@@ -17,9 +17,9 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
  */
 class Button extends React.Component {
   render() {
-    const _this$props = this.props,
-          label = _this$props.label,
-          onClick = _this$props.onClick;
+    const _props = this.props,
+          label = _props.label,
+          onClick = _props.onClick;
     return React.createElement(React.Fragment, null, React.createElement(\\"button\\", {
       onClick: onClick
     }, label));
@@ -51,7 +51,7 @@ try {
         \\"name\\": \\"onClick\\",
         \\"required\\": true,
         \\"type\\": {
-          \\"name\\": \\"(event: SyntheticEvent<any, Event>) => void\\"
+          \\"name\\": \\"(event: SyntheticEvent<any>) => void\\"
         }
       },
       \\"optionalColor\\": {
@@ -70,7 +70,7 @@ try {
     STORYBOOK_REACT_CLASSES[\\"src/__fixtures__/Component.tsx#Button\\"] = {
       name: \\"Button\\",
       docgenInfo: Button.__docgenInfo,
-      path: \\"/Users/yehangqi/Documents/projects/web/creams-container/babel-plugin-react-docgen-typescript/src/__fixtures__/Component.tsx\\"
+      path: \\"/home/jason/code/public/babel-plugin-react-docgen-typescript/src/__fixtures__/Component.tsx\\"
     };
   }
 } catch (e) {}"
@@ -93,9 +93,9 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
  */
 class Button extends React.Component {
   render() {
-    const _this$props = this.props,
-          label = _this$props.label,
-          onClick = _this$props.onClick;
+    const _props = this.props,
+          label = _props.label,
+          onClick = _props.onClick;
     return React.createElement(React.Fragment, null, React.createElement(\\"button\\", {
       onClick: onClick
     }, label));
@@ -127,7 +127,7 @@ try {
         \\"name\\": \\"onClick\\",
         \\"required\\": true,
         \\"type\\": {
-          \\"name\\": \\"(event: SyntheticEvent<any, Event>) => void\\"
+          \\"name\\": \\"(event: SyntheticEvent<any>) => void\\"
         }
       },
       \\"optionalColor\\": {
@@ -161,9 +161,9 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
  */
 class Button extends React.Component {
   render() {
-    const _this$props = this.props,
-          label = _this$props.label,
-          onClick = _this$props.onClick;
+    const _props = this.props,
+          label = _props.label,
+          onClick = _props.onClick;
     return React.createElement(React.Fragment, null, React.createElement(\\"button\\", {
       onClick: onClick
     }, label));
@@ -211,9 +211,9 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
  */
 class Button extends React.Component {
   render() {
-    const _this$props = this.props,
-          label = _this$props.label,
-          onClick = _this$props.onClick;
+    const _props = this.props,
+          label = _props.label,
+          onClick = _props.onClick;
     return React.createElement(React.Fragment, null, React.createElement(\\"button\\", {
       onClick: onClick
     }, label));
