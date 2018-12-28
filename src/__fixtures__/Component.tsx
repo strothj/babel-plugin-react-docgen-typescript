@@ -13,6 +13,7 @@ interface ButtonProps {
 
   /**
    * An optional color to apply to the button.
+   * @default #fff
    */
   optionalColor?: string;
 }
@@ -21,6 +22,10 @@ interface ButtonProps {
  * This is an awesome looking button for React.
  */
 class Button extends React.Component<ButtonProps> {
+  static defaultProps = {
+    label: "label",
+  };
+
   render() {
     const { label, onClick } = this.props;
 
