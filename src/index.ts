@@ -63,8 +63,9 @@ export default function(babel: { types: typeof types }): PluginObj<State> {
         if (
           !includeRegex.test(filePath) ||
           (excludeRegex !== null && excludeRegex.test(filePath))
-        )
+        ) {
           return;
+        }
 
         const docgenCollectionKeyBase = p
           .relative("./", p.resolve("./", path.hub.file.opts.filename))
@@ -117,7 +118,16 @@ export default function(babel: { types: typeof types }): PluginObj<State> {
                           t.objectExpression([
                             t.objectProperty(
                               t.stringLiteral("defaultValue"),
-                              t.nullLiteral(),
+                              doc.props[propName].defaultValue === null
+                                ? t.nullLiteral()
+                                : t.objectExpression([
+                                    t.objectProperty(
+                                      t.stringLiteral("value"),
+                                      t.stringLiteral(
+                                        doc.props[propName].defaultValue.value,
+                                      ),
+                                    ),
+                                  ]),
                             ),
                             t.objectProperty(
                               t.stringLiteral("description"),

@@ -16,6 +16,10 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
  * This is an awesome looking button for React.
  */
 class Button extends React.Component {
+  static defaultProps = {
+    label: \\"label\\"
+  };
+
   render() {
     const _props = this.props,
           label = _props.label,
@@ -37,7 +41,9 @@ try {
     displayName: \\"Button\\",
     props: {
       \\"label\\": {
-        \\"defaultValue\\": null,
+        \\"defaultValue\\": {
+          \\"value\\": \\"label\\"
+        },
         \\"description\\": \\"Label for button.\\",
         \\"name\\": \\"label\\",
         \\"required\\": true,
@@ -55,7 +61,9 @@ try {
         }
       },
       \\"optionalColor\\": {
-        \\"defaultValue\\": null,
+        \\"defaultValue\\": {
+          \\"value\\": \\"#fff\\"
+        },
         \\"description\\": \\"An optional color to apply to the button.\\",
         \\"name\\": \\"optionalColor\\",
         \\"required\\": false,
@@ -92,6 +100,10 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
  * This is an awesome looking button for React.
  */
 class Button extends React.Component {
+  static defaultProps = {
+    label: \\"label\\"
+  };
+
   render() {
     const _props = this.props,
           label = _props.label,
@@ -113,7 +125,9 @@ try {
     displayName: \\"Button\\",
     props: {
       \\"label\\": {
-        \\"defaultValue\\": null,
+        \\"defaultValue\\": {
+          \\"value\\": \\"label\\"
+        },
         \\"description\\": \\"Label for button.\\",
         \\"name\\": \\"label\\",
         \\"required\\": true,
@@ -131,7 +145,9 @@ try {
         }
       },
       \\"optionalColor\\": {
-        \\"defaultValue\\": null,
+        \\"defaultValue\\": {
+          \\"value\\": \\"#fff\\"
+        },
         \\"description\\": \\"An optional color to apply to the button.\\",
         \\"name\\": \\"optionalColor\\",
         \\"required\\": false,
@@ -160,6 +176,10 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
  * This is an awesome looking button for React.
  */
 class Button extends React.Component {
+  static defaultProps = {
+    label: \\"label\\"
+  };
+
   render() {
     const _props = this.props,
           label = _props.label,
@@ -181,7 +201,9 @@ try {
     displayName: \\"Button\\",
     props: {
       \\"optionalColor\\": {
-        \\"defaultValue\\": null,
+        \\"defaultValue\\": {
+          \\"value\\": \\"#fff\\"
+        },
         \\"description\\": \\"An optional color to apply to the button.\\",
         \\"name\\": \\"optionalColor\\",
         \\"required\\": false,
@@ -210,6 +232,10 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
  * This is an awesome looking button for React.
  */
 class Button extends React.Component {
+  static defaultProps = {
+    label: \\"label\\"
+  };
+
   render() {
     const _props = this.props,
           label = _props.label,
@@ -231,7 +257,9 @@ try {
     displayName: \\"Button\\",
     props: {
       \\"label\\": {
-        \\"defaultValue\\": null,
+        \\"defaultValue\\": {
+          \\"value\\": \\"label\\"
+        },
         \\"description\\": \\"Label for button.\\",
         \\"name\\": \\"label\\",
         \\"required\\": true,
@@ -240,7 +268,9 @@ try {
         }
       },
       \\"optionalColor\\": {
-        \\"defaultValue\\": null,
+        \\"defaultValue\\": {
+          \\"value\\": \\"#fff\\"
+        },
         \\"description\\": \\"An optional color to apply to the button.\\",
         \\"name\\": \\"optionalColor\\",
         \\"required\\": false,
