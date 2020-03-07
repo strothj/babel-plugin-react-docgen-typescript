@@ -171,9 +171,10 @@ export default function(babel: { types: typeof types }): PluginObj<State> {
                                   t.stringLiteral("value"),
                                   doc.props[propName].type.value !== undefined
                                     ? t.arrayExpression(
-                                        doc.props[propName].type.value.map(
-                                          (type: PropItemType) =>
-                                            t.stringLiteral(type.value),
+                                        doc.props[
+                                          propName
+                                        ].type.value.map((type: PropItemType) =>
+                                          t.stringLiteral(type.value),
                                         ),
                                       )
                                     : t.nullLiteral(),
@@ -227,7 +228,9 @@ export default function(babel: { types: typeof types }): PluginObj<State> {
                         ),
                         t.objectProperty(
                           t.identifier("path"),
-                          t.stringLiteral(filePath),
+                          t.stringLiteral(
+                            `${docgenCollectionKeyBase}#${doc.displayName}`,
+                          ),
                         ),
                       ]),
                     ),

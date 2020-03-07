@@ -98,7 +98,7 @@ try {
     STORYBOOK_REACT_CLASSES[\\"src/__fixtures__/Component.tsx#Button\\"] = {
       name: \\"Button\\",
       docgenInfo: Button.__docgenInfo,
-      path: \\"/home/jason/code/public/babel-plugin-react-docgen-typescript/src/__fixtures__/Component.tsx\\"
+      path: \\"src/__fixtures__/Component.tsx#Button\\"
     };
   }
 } catch (e) {}"
