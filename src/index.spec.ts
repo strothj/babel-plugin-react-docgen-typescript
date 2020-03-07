@@ -32,6 +32,14 @@ it("adds component to docgen collection", async () => {
   expect(result.code).toMatchSnapshot();
 });
 
+it("extracts literal values from enum, unions and custom types", async () => {
+  const result = await transformFile("Component.tsx", {
+    shouldExtractLiteralValuesFromEnum: true,
+  });
+
+  expect(result.code).toMatchSnapshot();
+});
+
 function transformFile(fixtureFilename: string, options: PluginOptions = {}) {
   const filePath = path.resolve(__dirname, "__fixtures__", fixtureFilename);
 

@@ -17,7 +17,8 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
  */
 class Button extends React.Component {
   static defaultProps = {
-    label: \\"label\\"
+    label: \\"label\\",
+    size: \\"default\\"
   };
 
   render() {
@@ -46,9 +47,11 @@ try {
         },
         \\"description\\": \\"Label for button.\\",
         \\"name\\": \\"label\\",
-        \\"required\\": true,
+        \\"required\\": false,
         \\"type\\": {
-          \\"name\\": \\"string\\"
+          \\"name\\": \\"string\\",
+          \\"raw\\": null,
+          \\"value\\": null
         }
       },
       \\"onClick\\": {
@@ -57,7 +60,9 @@ try {
         \\"name\\": \\"onClick\\",
         \\"required\\": true,
         \\"type\\": {
-          \\"name\\": \\"(event: SyntheticEvent<any>) => void\\"
+          \\"name\\": \\"(event: SyntheticEvent<any>) => void\\",
+          \\"raw\\": null,
+          \\"value\\": null
         }
       },
       \\"optionalColor\\": {
@@ -68,7 +73,22 @@ try {
         \\"name\\": \\"optionalColor\\",
         \\"required\\": false,
         \\"type\\": {
-          \\"name\\": \\"string\\"
+          \\"name\\": \\"string\\",
+          \\"raw\\": null,
+          \\"value\\": null
+        }
+      },
+      \\"size\\": {
+        \\"defaultValue\\": {
+          \\"value\\": \\"default\\"
+        },
+        \\"description\\": \\"Defines the size of the button.\\",
+        \\"name\\": \\"size\\",
+        \\"required\\": false,
+        \\"type\\": {
+          \\"name\\": \\"Size\\",
+          \\"raw\\": null,
+          \\"value\\": null
         }
       }
     }
@@ -81,6 +101,102 @@ try {
       path: \\"/home/jason/code/public/babel-plugin-react-docgen-typescript/src/__fixtures__/Component.tsx\\"
     };
   }
+} catch (e) {}"
+`;
+
+exports[`extracts literal values from enum, unions and custom types 1`] = `
+"\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = void 0;
+
+var React = _interopRequireWildcard(require(\\"react\\"));
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+/**
+ * This is an awesome looking button for React.
+ */
+class Button extends React.Component {
+  static defaultProps = {
+    label: \\"label\\",
+    size: \\"default\\"
+  };
+
+  render() {
+    const _props = this.props,
+          label = _props.label,
+          onClick = _props.onClick;
+    return React.createElement(React.Fragment, null, React.createElement(\\"button\\", {
+      onClick: onClick
+    }, label));
+  }
+
+}
+
+var _default = Button;
+exports.default = _default;
+
+try {
+  Button.displayName = \\"Button\\";
+  Button.__docgenInfo = {
+    description: \\"This is an awesome looking button for React.\\",
+    displayName: \\"Button\\",
+    props: {
+      \\"label\\": {
+        \\"defaultValue\\": {
+          \\"value\\": \\"label\\"
+        },
+        \\"description\\": \\"Label for button.\\",
+        \\"name\\": \\"label\\",
+        \\"required\\": false,
+        \\"type\\": {
+          \\"name\\": \\"string\\",
+          \\"raw\\": null,
+          \\"value\\": null
+        }
+      },
+      \\"onClick\\": {
+        \\"defaultValue\\": null,
+        \\"description\\": \\"Triggered when button is clicked.\\",
+        \\"name\\": \\"onClick\\",
+        \\"required\\": true,
+        \\"type\\": {
+          \\"name\\": \\"(event: SyntheticEvent<any>) => void\\",
+          \\"raw\\": null,
+          \\"value\\": null
+        }
+      },
+      \\"optionalColor\\": {
+        \\"defaultValue\\": {
+          \\"value\\": \\"#fff\\"
+        },
+        \\"description\\": \\"An optional color to apply to the button.\\",
+        \\"name\\": \\"optionalColor\\",
+        \\"required\\": false,
+        \\"type\\": {
+          \\"name\\": \\"string\\",
+          \\"raw\\": null,
+          \\"value\\": null
+        }
+      },
+      \\"size\\": {
+        \\"defaultValue\\": {
+          \\"value\\": \\"default\\"
+        },
+        \\"description\\": \\"Defines the size of the button.\\",
+        \\"name\\": \\"size\\",
+        \\"required\\": false,
+        \\"type\\": {
+          \\"name\\": \\"enum\\",
+          \\"raw\\": \\"Size\\",
+          \\"value\\": [\\"\\\\\\"default\\\\\\"\\", \\"\\\\\\"small\\\\\\"\\", \\"\\\\\\"large\\\\\\"\\"]
+        }
+      }
+    }
+  };
 } catch (e) {}"
 `;
 
@@ -101,7 +217,8 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
  */
 class Button extends React.Component {
   static defaultProps = {
-    label: \\"label\\"
+    label: \\"label\\",
+    size: \\"default\\"
   };
 
   render() {
@@ -130,9 +247,11 @@ try {
         },
         \\"description\\": \\"Label for button.\\",
         \\"name\\": \\"label\\",
-        \\"required\\": true,
+        \\"required\\": false,
         \\"type\\": {
-          \\"name\\": \\"string\\"
+          \\"name\\": \\"string\\",
+          \\"raw\\": null,
+          \\"value\\": null
         }
       },
       \\"onClick\\": {
@@ -141,7 +260,9 @@ try {
         \\"name\\": \\"onClick\\",
         \\"required\\": true,
         \\"type\\": {
-          \\"name\\": \\"(event: SyntheticEvent<any>) => void\\"
+          \\"name\\": \\"(event: SyntheticEvent<any>) => void\\",
+          \\"raw\\": null,
+          \\"value\\": null
         }
       },
       \\"optionalColor\\": {
@@ -152,7 +273,22 @@ try {
         \\"name\\": \\"optionalColor\\",
         \\"required\\": false,
         \\"type\\": {
-          \\"name\\": \\"string\\"
+          \\"name\\": \\"string\\",
+          \\"raw\\": null,
+          \\"value\\": null
+        }
+      },
+      \\"size\\": {
+        \\"defaultValue\\": {
+          \\"value\\": \\"default\\"
+        },
+        \\"description\\": \\"Defines the size of the button.\\",
+        \\"name\\": \\"size\\",
+        \\"required\\": false,
+        \\"type\\": {
+          \\"name\\": \\"Size\\",
+          \\"raw\\": null,
+          \\"value\\": null
         }
       }
     }
@@ -177,7 +313,8 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
  */
 class Button extends React.Component {
   static defaultProps = {
-    label: \\"label\\"
+    label: \\"label\\",
+    size: \\"default\\"
   };
 
   render() {
@@ -208,7 +345,22 @@ try {
         \\"name\\": \\"optionalColor\\",
         \\"required\\": false,
         \\"type\\": {
-          \\"name\\": \\"string\\"
+          \\"name\\": \\"string\\",
+          \\"raw\\": null,
+          \\"value\\": null
+        }
+      },
+      \\"size\\": {
+        \\"defaultValue\\": {
+          \\"value\\": \\"default\\"
+        },
+        \\"description\\": \\"Defines the size of the button.\\",
+        \\"name\\": \\"size\\",
+        \\"required\\": false,
+        \\"type\\": {
+          \\"name\\": \\"Size\\",
+          \\"raw\\": null,
+          \\"value\\": null
         }
       }
     }
@@ -233,7 +385,8 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
  */
 class Button extends React.Component {
   static defaultProps = {
-    label: \\"label\\"
+    label: \\"label\\",
+    size: \\"default\\"
   };
 
   render() {
@@ -262,9 +415,11 @@ try {
         },
         \\"description\\": \\"Label for button.\\",
         \\"name\\": \\"label\\",
-        \\"required\\": true,
+        \\"required\\": false,
         \\"type\\": {
-          \\"name\\": \\"string\\"
+          \\"name\\": \\"string\\",
+          \\"raw\\": null,
+          \\"value\\": null
         }
       },
       \\"optionalColor\\": {
@@ -275,7 +430,22 @@ try {
         \\"name\\": \\"optionalColor\\",
         \\"required\\": false,
         \\"type\\": {
-          \\"name\\": \\"string\\"
+          \\"name\\": \\"string\\",
+          \\"raw\\": null,
+          \\"value\\": null
+        }
+      },
+      \\"size\\": {
+        \\"defaultValue\\": {
+          \\"value\\": \\"default\\"
+        },
+        \\"description\\": \\"Defines the size of the button.\\",
+        \\"name\\": \\"size\\",
+        \\"required\\": false,
+        \\"type\\": {
+          \\"name\\": \\"Size\\",
+          \\"raw\\": null,
+          \\"value\\": null
         }
       }
     }

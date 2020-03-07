@@ -1,6 +1,6 @@
 import * as p from "path";
 import { types, PluginObj } from "babel-core";
-import { parse } from "react-docgen-typescript/lib/parser";
+import { parse, PropItemType } from "react-docgen-typescript/lib/parser";
 
 /**
  * Babel plugin options.
@@ -30,6 +30,13 @@ export interface PluginOptions {
 
   /** File paths must not match regex. */
   exclude?: string;
+
+  /**
+   * If set to true, string enums and unions will be converted to docgen enum format.
+   *
+   * This option is passed to the "react-docgen-typescript" parser.
+   */
+  shouldExtractLiteralValuesFromEnum?: boolean;
 }
 
 interface State {
@@ -72,6 +79,8 @@ export default function(babel: { types: typeof types }): PluginObj<State> {
           .replace(/\\/g, "/");
 
         const componentDocs = parse(filePath, {
+          shouldExtractLiteralValuesFromEnum:
+            state.opts.shouldExtractLiteralValuesFromEnum,
           propFilter: state.opts.propFilter || state.opts,
           componentNameResolver: state.opts.componentNameResolver,
         });
@@ -149,6 +158,25 @@ export default function(babel: { types: typeof types }): PluginObj<State> {
                                   t.stringLiteral(
                                     doc.props[propName].type.name,
                                   ),
+                                ),
+                                t.objectProperty(
+                                  t.stringLiteral("raw"),
+                                  doc.props[propName].type.raw !== undefined
+                                    ? t.stringLiteral(
+                                        doc.props[propName].type.raw,
+                                      )
+                                    : t.nullLiteral(),
+                                ),
+                                t.objectProperty(
+                                  t.stringLiteral("value"),
+                                  doc.props[propName].type.value !== undefined
+                                    ? t.arrayExpression(
+                                        doc.props[propName].type.value.map(
+                                          (type: PropItemType) =>
+                                            t.stringLiteral(type.value),
+                                        ),
+                                      )
+                                    : t.nullLiteral(),
                                 ),
                               ]),
                             ),
