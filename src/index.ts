@@ -174,7 +174,15 @@ export default function(babel: { types: typeof types }): PluginObj<State> {
                                         doc.props[
                                           propName
                                         ].type.value.map((type: PropItemType) =>
-                                          t.stringLiteral(type.value),
+                                          state.opts
+                                            .shouldExtractLiteralValuesFromEnum
+                                            ? t.objectExpression([
+                                                t.objectProperty(
+                                                  t.stringLiteral("value"),
+                                                  t.stringLiteral(type.value)
+                                                )
+                                              ])
+                                            : t.stringLiteral(type.value)
                                         ),
                                       )
                                     : t.nullLiteral(),
