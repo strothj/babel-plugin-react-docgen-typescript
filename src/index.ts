@@ -179,10 +179,10 @@ export default function(babel: { types: typeof types }): PluginObj<State> {
                                             ? t.objectExpression([
                                                 t.objectProperty(
                                                   t.stringLiteral("value"),
-                                                  t.stringLiteral(type.value)
-                                                )
+                                                  t.stringLiteral(type.value),
+                                                ),
                                               ])
-                                            : t.stringLiteral(type.value)
+                                            : t.stringLiteral(type.value),
                                         ),
                                       )
                                     : t.nullLiteral(),
