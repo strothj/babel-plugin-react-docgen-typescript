@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.4.1] - 2020-03-29
+
+### Fix
+
+- Built asset from 1.4.0 not included.
+
 ## [1.4.0] - 2020-03-29
 
 ### Added
