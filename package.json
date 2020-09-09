@@ -53,6 +53,6 @@
     "typescript": "^3.0.1"
   },
   "dependencies": {
-    "react-docgen-typescript": "^1.16.2"
+    "react-docgen-typescript": "^1.20.4"
   }
 }
