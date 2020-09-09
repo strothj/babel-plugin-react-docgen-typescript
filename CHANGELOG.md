@@ -1,5 +1,13 @@
 # Changelog
 
+## [Unreleased]
+
+### Added
+- Support for `shouldExtractValuesFromUnion` parser option.
+
+### Fix
+- Non-string default values caused an error.
+
 ## [1.4.2] - 2020-03-29
 
 ### Fix

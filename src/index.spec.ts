@@ -32,9 +32,17 @@ it("adds component to docgen collection", async () => {
   expect(result.code).toMatchSnapshot();
 });
 
-it("extracts literal values from enum, unions and custom types", async () => {
+it("extracts literal values from string enum and union types", async () => {
   const result = await transformFile("Component.tsx", {
     shouldExtractLiteralValuesFromEnum: true,
+  });
+
+  expect(result.code).toMatchSnapshot();
+});
+
+it("extracts literal values from multiple types unions", async () => {
+  const result = await transformFile("Component.tsx", {
+    shouldExtractValuesFromUnion: true,
   });
 
   expect(result.code).toMatchSnapshot();

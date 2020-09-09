@@ -1,6 +1,7 @@
 import * as React from "react";
 
 type Size = "small" | "default" | "large";
+type TabIndex = -1 | 0 | 1 | 2;
 interface ButtonProps {
   /**
    * Label for button.
@@ -22,6 +23,16 @@ interface ButtonProps {
    * Defines the size of the button.
    */
   size?: Size;
+
+  /**
+   * Defines the tabIndex of the button.
+   */
+  tabIndex?: TabIndex;
+
+  /**
+   * Defines if a button is disabled.
+   */
+  disabled?: boolean;
 }
 
 /**
@@ -31,6 +42,8 @@ class Button extends React.Component<ButtonProps> {
   static defaultProps = {
     label: "label",
     size: "default",
+    disabled: false,
+    tabIndex: -1,
   };
 
   render() {
