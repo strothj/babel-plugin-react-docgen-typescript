@@ -37,6 +37,13 @@ export interface PluginOptions {
    * This option is passed to the "react-docgen-typescript" parser.
    */
   shouldExtractLiteralValuesFromEnum?: boolean;
+
+  /**
+   * If set to true, multiple types unions will be converted to docgen enum format.
+   *
+   * This option is passed to the "react-docgen-typescript" parser.
+   */
+  shouldExtractValuesFromUnion?: boolean;
 }
 
 interface State {
@@ -81,6 +88,7 @@ export default function(babel: { types: typeof types }): PluginObj<State> {
         const componentDocs = parse(filePath, {
           shouldExtractLiteralValuesFromEnum:
             state.opts.shouldExtractLiteralValuesFromEnum,
+          shouldExtractValuesFromUnion: state.opts.shouldExtractValuesFromUnion,
           propFilter: state.opts.propFilter || state.opts,
           componentNameResolver: state.opts.componentNameResolver,
         });
@@ -133,7 +141,7 @@ export default function(babel: { types: typeof types }): PluginObj<State> {
                                     t.objectProperty(
                                       t.stringLiteral("value"),
                                       t.stringLiteral(
-                                        doc.props[propName].defaultValue.value,
+                                        `${doc.props[propName].defaultValue.value}`,
                                       ),
                                     ),
                                   ]),
