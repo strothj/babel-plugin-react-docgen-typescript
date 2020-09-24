@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-react-docgen-typescript",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "main": "dist/index.js",
   "description": "Babel Plugin to generate docgen data from React components written in TypeScript.",
   "homepage": "https://github.com/strothj/babel-plugin-react-docgen-typescript",
