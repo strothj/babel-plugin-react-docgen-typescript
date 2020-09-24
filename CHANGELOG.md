@@ -1,6 +1,6 @@
 # Changelog
 
-## [Unreleased]
+## [1.5.0] - 2020-09-24
 
 ### Added
 - Support for `shouldExtractValuesFromUnion` parser option.
